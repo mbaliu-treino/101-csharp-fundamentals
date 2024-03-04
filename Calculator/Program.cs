@@ -20,10 +20,10 @@ namespace Calculator {
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Divisão");
             Console.WriteLine("4 - Multiplicação");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("0 - Sair");
 
             Console.WriteLine("\nSelecione uma opção: ");
-            short EntradaUsuario = short.Parse( Console.ReadLine() );
+            short EntradaUsuario = short.Parse( Console.ReadLine() ?? "0");
 
             // Escolha da operação (Strategy)
             switch (EntradaUsuario) {
@@ -37,17 +37,23 @@ namespace Calculator {
 
         }
 
+        static String UserInput(){
+            string? EntradaUsuario = Console.ReadLine();
+            EntradaUsuario ??= "0";
+            return EntradaUsuario;
+        }
+
 
         static void Soma(){
             Console.Clear();
 
             // Primeiro valor
             Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( Console.ReadLine() );
+            float v1 = float.Parse( UserInput() );
 
             // Segundo valor
             Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( Console.ReadLine() );
+            float v2 = float.Parse( UserInput() );
 
             // Resultado
             float Resultado = v1 + v2;
@@ -61,11 +67,11 @@ namespace Calculator {
 
             // Primeiro valor
             Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( Console.ReadLine() );
+            float v1 = float.Parse( UserInput() );
 
             // Segundo valor
             Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( Console.ReadLine() );
+            float v2 = float.Parse( UserInput() );
 
             // Resultado
             float Resultado = v1 - v2;
@@ -79,11 +85,11 @@ namespace Calculator {
 
             // Primeiro valor
             Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( Console.ReadLine() );
+            float v1 = float.Parse( UserInput() );
 
             // Segundo valor
             Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( Console.ReadLine() );
+            float v2 = float.Parse( UserInput() );
 
             // Resultado
             float Resultado = v1 / v2;
@@ -97,10 +103,10 @@ namespace Calculator {
             Console.Clear();
 
             Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( Console.ReadLine() );
+            float v1 = float.Parse( UserInput() );
 
             Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( Console.ReadLine() );
+            float v2 = float.Parse( UserInput() );
 
             float Resultado = v1 * v2;
             Console.WriteLine($"O resultado é {Resultado}");
