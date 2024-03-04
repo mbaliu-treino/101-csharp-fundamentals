@@ -4,15 +4,17 @@ using System;
 namespace Calculator {
     class Program {
         static void Main(String[] args) {
+            MenuTitulo();
             Menu();
           
         }
 
-        static void Menu(){
+        static void MenuTitulo(){
             Console.Clear();
-
             Console.WriteLine("====================================");
-            Console.WriteLine("       CALCULADORA      \n");
+            Console.WriteLine("             CALCULADORA          \n");
+        }
+        static void Menu(){
             Console.WriteLine("O que você deseja fazer?");
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
@@ -50,6 +52,8 @@ namespace Calculator {
             // Resultado
             float Resultado = v1 + v2;
             Console.WriteLine("O resultado da soma é " + Resultado);
+            Console.ReadKey();
+            Console.Clear(); Menu();
         }
 
         static void Subtracao (){
@@ -67,6 +71,7 @@ namespace Calculator {
             float Resultado = v1 - v2;
             Console.WriteLine($"O resultado da soma é {Resultado}");
             Console.ReadKey();
+            Console.Clear(); Menu();
         }
 
         static void Divisao(){
@@ -85,6 +90,7 @@ namespace Calculator {
             // ERROR: Erro de divisão por 0
             Console.WriteLine($"O resultado é {Resultado}");
             Console.ReadKey();
+            Console.Clear(); Menu();
         }
 
         static void Multiplicacao(){
@@ -98,6 +104,8 @@ namespace Calculator {
 
             float Resultado = v1 * v2;
             Console.WriteLine($"O resultado é {Resultado}");
+            Console.ReadKey();
+            Console.Clear(); Menu();
         }
 
         
