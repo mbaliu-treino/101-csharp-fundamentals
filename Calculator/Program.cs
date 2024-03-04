@@ -31,7 +31,7 @@ namespace Calculator {
                 case 2: Subtracao(); break;
                 case 3: Divisao(); break;
                 case 4: Multiplicacao(); break;
-                case 5: System.Environment.Exit(0); break;
+                case 0: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opção não entrada."); Menu(); break;
             }
 
@@ -91,10 +91,17 @@ namespace Calculator {
             Console.WriteLine("Segundo valor: ");
             float v2 = float.Parse( UserInput() );
 
-            // Resultado
-            float Resultado = v1 / v2;
             // ERROR: Erro de divisão por 0
-            Console.WriteLine($"O resultado é {Resultado}");
+            bool DividedByZero = v2 == 0;
+            
+            if (DividedByZero){
+                Console.WriteLine("O divisor não pode ser 0. O valor tende a inf (∞)");
+            } else {
+                // Resultado
+                float Resultado = v1 / v2;
+                Console.WriteLine($"O resultado é {Resultado}");
+            }
+
             Console.ReadKey();
             Console.Clear(); Menu();
         }
