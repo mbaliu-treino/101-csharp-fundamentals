@@ -14,6 +14,7 @@ namespace Calculator {
             Console.WriteLine("====================================");
             Console.WriteLine("             CALCULADORA          \n");
         }
+
         static void Menu(){
             Console.WriteLine("O que você deseja fazer?");
             Console.WriteLine("1 - Adição");
@@ -37,23 +38,23 @@ namespace Calculator {
 
         }
 
-        static String UserInput(){
-            string? EntradaUsuario = Console.ReadLine();
-            EntradaUsuario ??= "0";
-            return EntradaUsuario;
-        }
+        static (float, float) EntradasDeUsuario(){
+            // Primeiro valor
+            Console.WriteLine("Primeiro valor: ");
+            float v1 = float.Parse( Console.ReadLine() ?? "0" );
 
+            // Segundo valor
+            Console.WriteLine("Segundo valor: ");
+            float v2 = float.Parse( Console.ReadLine() ?? "0" );
+
+            return (v1, v2);
+        }
 
         static void Soma(){
             Console.Clear();
 
-            // Primeiro valor
-            Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( UserInput() );
-
-            // Segundo valor
-            Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( UserInput() );
+            // Valores da operação
+            (float v1, float v2) = EntradasDeUsuario();
 
             // Resultado
             float Resultado = v1 + v2;
@@ -65,13 +66,8 @@ namespace Calculator {
         static void Subtracao (){
             Console.Clear();
 
-            // Primeiro valor
-            Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( UserInput() );
-
-            // Segundo valor
-            Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( UserInput() );
+            // Valores da operação
+            (float v1, float v2) = EntradasDeUsuario();
 
             // Resultado
             float Resultado = v1 - v2;
@@ -83,17 +79,12 @@ namespace Calculator {
         static void Divisao(){
             Console.Clear();
 
-            // Primeiro valor
-            Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( UserInput() );
-
-            // Segundo valor
-            Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( UserInput() );
+            // Valores da operação
+            (float v1, float v2) = EntradasDeUsuario();
 
             // ERROR: Erro de divisão por 0
             bool DividedByZero = v2 == 0;
-            
+
             if (DividedByZero){
                 Console.WriteLine("O divisor não pode ser 0. O valor tende a inf (∞)");
             } else {
@@ -109,11 +100,8 @@ namespace Calculator {
         static void Multiplicacao(){
             Console.Clear();
 
-            Console.WriteLine("Primeiro valor: ");
-            float v1 = float.Parse( UserInput() );
-
-            Console.WriteLine("Segundo valor: ");
-            float v2 = float.Parse( UserInput() );
+            // Valores da operação
+            (float v1, float v2) = EntradasDeUsuario();
 
             float Resultado = v1 * v2;
             Console.WriteLine($"O resultado é {Resultado}");
