@@ -37,10 +37,10 @@ namespace Calculator {
 
             // Escolha da operação (Strategy)
             switch (EntradaUsuario) {
-                case 1: Soma(); break;
-                case 2: Subtracao(); break;
-                case 3: Divisao(); break;
-                case 4: Multiplicacao(); break;
+                case 1: ExecutarOperacao(Soma); break;
+                case 2: ExecutarOperacao(Subtracao); break;
+                case 3: ExecutarOperacao(Divisao); break;
+                case 4: ExecutarOperacao(Multiplicacao); break;
                 case 0: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opção não entrada."); Menu(); break;
             }
@@ -64,76 +64,57 @@ namespace Calculator {
         }
 
         /// <summary>
-        /// Calcula a soma entre dois números.
+        /// Função delegate de alta ordem
         /// </summary>
-        static void Soma(){
+        /// <param name="operacao"></param>
+        static void ExecutarOperacao(Func<float, float, float?> operacao){
             Console.Clear();
 
             // Valores da operação
             (float v1, float v2) = EntradasDeUsuario();
 
             // Resultado
-            float Resultado = v1 + v2;
-            Console.WriteLine("O resultado da soma é " + Resultado);
+            float? Resultado = operacao(v1, v2);
+            if (Resultado != null) {   
+                Console.WriteLine("O resultado da operação é " + Resultado);
+            }
             Console.ReadKey();
             Console.Clear(); Menu();
         }
+
+        /// <summary>
+        /// Calcula a soma entre dois números.
+        /// </summary>
+        static float? Soma(float v1, float v2) => v1 + v2;
+
 
         /// <summary>
         /// Calcula a substração do primeiro número pelo segundo.
         /// </summary>
-        static void Subtracao (){
-            Console.Clear();
+        static float? Subtracao (float v1, float v2) => v1 - v2;
 
-            // Valores da operação
-            (float v1, float v2) = EntradasDeUsuario();
-
-            // Resultado
-            float Resultado = v1 - v2;
-            Console.WriteLine($"O resultado da soma é {Resultado}");
-            Console.ReadKey();
-            Console.Clear(); Menu();
-        }
 
         /// <summary>
         /// Calcula a divisão do primeiro número pelo segundo.
         /// </summary>
-        static void Divisao(){
-            Console.Clear();
-
-            // Valores da operação
-            (float v1, float v2) = EntradasDeUsuario();
-
+        static float? Divisao(float v1, float v2){
             // ERROR: Erro de divisão por 0
             bool DividedByZero = v2 == 0;
 
             if (DividedByZero){
-                Console.WriteLine("O divisor não pode ser 0. O valor tende a inf (∞)");
+                Console.WriteLine("O divisor não pode ser 0.");
+                return null;
             } else {
                 // Resultado
                 float Resultado = v1 / v2;
                 Console.WriteLine($"O resultado é {Resultado}");
+                return Resultado;
             }
-
-            Console.ReadKey();
-            Console.Clear(); Menu();
         }
 
         /// <summary>
         /// Calcula o múltiplicação entre dois números.
         /// </summary>
-        static void Multiplicacao(){
-            Console.Clear();
-
-            // Valores da operação
-            (float v1, float v2) = EntradasDeUsuario();
-
-            float Resultado = v1 * v2;
-            Console.WriteLine($"O resultado é {Resultado}");
-            Console.ReadKey();
-            Console.Clear(); Menu();
-        }
-
-        
+        static float? Multiplicacao(float v1, float v2) => v1 * v2;
     }
 }
