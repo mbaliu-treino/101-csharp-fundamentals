@@ -2,6 +2,8 @@
 
 Este projeto é uma solução de calculadora no modo de aplicativo de Console, construído em C#. O objetivo deste projeto é praticar os fundamentos do desenvolvimento de software com o C#, sendo este minha primeira aproximação nesta linguagem. O calcuradora realiza 4 operações básicas (soma, subtração, multiplicação e divisão) através de um menu de opções.
 
+![Usage](./docs/docs_usage.gif)
+
 
 ## Principais conceitos
 
