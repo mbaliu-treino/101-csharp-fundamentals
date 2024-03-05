@@ -1,4 +1,6 @@
-# Projeto de Calculadora
+# Projeto de Calculadora <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" height=25/>
+
+[![English Version](https://img.shields.io/badge/-English%20version-1f6feb?style=flat-square)](./README-en.md)
 
 Este projeto é uma solução de calculadora no modo de aplicativo de console, construído em C#. O objetivo deste projeto é praticar os fundamentos do desenvolvimento de software com C#, sendo esta minha primeira abordagem nesta linguagem. A calculadora realiza 4 operações básicas (soma, subtração, multiplicação e divisão) através de um menu de opções.
 
@@ -7,7 +9,7 @@ Este projeto é uma solução de calculadora no modo de aplicativo de console, c
 
 ## Principais Conceitos
 
-Este projeto serviu para aplicar alguns conceitos-chave da programação implementados com a linguagem de programação C#. A seguir, segue a lista desses conceitos:
+Este projeto serviu para aplicar alguns conceitos-chave da programação, implementados com a linguagem de programação C#. A seguir, segue a lista desses conceitos:
 
 >   * Controle do fluxo de execução (princípios de programação)
 >       * Estrutura Coalesce
@@ -16,7 +18,7 @@ Este projeto serviu para aplicar alguns conceitos-chave da programação impleme
 >       * Strategy Design Pattern
 >       * Sistema de I/O para usuários
 >   * Arquitetura OOP básica
->       * Retono composto (Tupla nomeada)
+>       * Retorno composto (Tupla nomeada)
 >       * Função de alta ordem (delegate)
 >   * Método de Expressão (função lambda/anônima)
 >   * Docstrings
@@ -24,12 +26,12 @@ Este projeto serviu para aplicar alguns conceitos-chave da programação impleme
 
 ## Modo de Usar
 
-Para testar esta aplicação, basta executar o arquivo Calculator.exe no Terminal (CMD).
+Para testar esta aplicação, executar no Terminal (CMD):
 
 ```bash
 git clone https://github.com/mbaliu-treino/101-csharp-fundamentals.git
 cd ./101-csharp-fundamentals/Calculator
-Calculator.exe
+dotnet run
 ```
 
 
