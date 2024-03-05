@@ -14,9 +14,9 @@ Este projeto serviu para aplicar alguns conceitos-chave da programação impleme
 >       * Atribuição múltipla
 >       * Conversão de tipos
 >       * Strategy Design Pattern
->   * Sistema de I/O para usuários
+>       * Sistema de I/O para usuários
 >   * Arquitetura OOP básica
->       * Múltiplos parâmetros (Tupla nomeada)
+>       * Retono composto (Tupla nomeada)
 >       * Função de alta ordem (delegate)
 >   * Método de Expressão (função lambda/anônima)
 >   * Docstrings
