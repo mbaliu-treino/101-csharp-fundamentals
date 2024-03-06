@@ -3,11 +3,18 @@ using System.Threading;
 
 namespace Stopwatch{
     class Program{
+        /// <summary>
+        /// Programa de cronômetro.
+        /// </summary>
         static void Main(String[] args){
-            // Start(6);
+            // Inicialização do menu
             Menu();
         }
 
+        
+        /// <summary>
+        /// Menu de inicialização da aplicação.
+        /// </summary>
         static void Menu(){
             Console.Clear();
 
@@ -18,29 +25,22 @@ namespace Stopwatch{
             Console.WriteLine("Quanto tempo deseja contar?");
             string Data = Console.ReadLine() ?? "";
 
-
-            // Extração de informações da entrada de usuário
-            Data = Data.ToLower();
-            char MetricType = char.Parse( Data.Substring( Data.Length-1, 1) );
-            int TimeValue = int.Parse( Data.Substring( 0, Data.Length-1 ) );
-
-            // Padronização do valor de tempo para segundos
-            int Multiplier = 1;
-            if (MetricType == 'm'){
-                Multiplier = 60;
+            // Opção de saída
+            if (Data == "0"){
+                System.Environment.Exit(0);
             }
 
-            // Caso o valor seja 0
-            // if (TimeValue == 0){
-            //     Menu();
-            //     System.Environment.Exit(0);
-            // }
+            // Transformação da entrada para segundos
+            int TimeValue = TransformarEntradaDeUsuario(Data);
 
             // Execução do cronômetro
-            Start(TimeValue * Multiplier);
-
+            PreStart(TimeValue);
         }
 
+
+        /// <summary>
+        /// Pré-execução do cronômetro.
+        /// </summary>
         static void PreStart(int Time){
             Console.Clear();
             Console.WriteLine("Ready...");
@@ -51,17 +51,48 @@ namespace Stopwatch{
             Thread.Sleep(1000);
 
             Start(Time);
-
-
         }
 
-        static void Start(int time){
-            int CurrentTime = 0;
 
-            while (time != CurrentTime){
+        /// <summary>
+        /// Transformação do dado de entrada do usuário para segundos.
+        /// </summary>
+        /// <returns>Tempo de espera em segundos.</returns>
+        static int TransformarEntradaDeUsuario(string entrada){
+            
+            // Extração de informações da entrada de usuário
+            entrada = entrada.ToLower();
+            char MetricType = char.Parse( entrada.Substring( entrada.Length-1, 1) );
+            int TimeValue = int.Parse( entrada.Substring( 0, entrada.Length-1 ) );
+
+            // Padronização do valor de tempo para segundos
+            int Multiplier = 0;
+            if (MetricType == 'm'){
+                // Conversão de minutos
+                Multiplier = 60;
+            } else if (MetricType == 's'){
+                // Conversão neutra
+                Multiplier = 1;
+            } else {
+                // Erro de entrada
+                Console.WriteLine("Unidade de medida inválida!");
+                Thread.Sleep(2500);
+                Menu();
+            }
+            return TimeValue * Multiplier;
+    }
+
+
+        /// <summary>
+        /// Execução do mecanismo de cronômetro.
+        /// </summary>
+        static void Start(int time){
+            int CurrentTime = time;
+
+            while (CurrentTime != 0){
                 Console.Clear();
-                CurrentTime++;
                 Console.WriteLine(CurrentTime);
+                CurrentTime--;
                 Thread.Sleep(1000);
             }
 
