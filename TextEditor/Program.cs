@@ -3,7 +3,7 @@
 namespace TextEditor {
     class Program {
         static void Main(String[] args){
-            Console.WriteLine("Hello World");
+            Menu();
         }
 
         static void Menu(){
@@ -25,7 +25,24 @@ namespace TextEditor {
 
         static void OpenFile(){}
 
-        static void EditFile(){}
+        static void EditFile(){
+            Console.Clear();
+            Console.WriteLine("Digite o seu texto abaixo (ESC para sair)");
+            Console.WriteLine("-------------------");
+
+            string Text = "";
+
+            // Entrada de múltiplas linhas
+            do{
+                Text += Console.ReadLine();
+                Text += Environment.NewLine;
+            }
+            while (Console.ReadKey().Key != ConsoleKey.Escape);
+
+            Console.WriteLine(Text);
+
+
+        }
     }
 
 }
