@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace TextEditor {
     class Program {
@@ -23,7 +24,22 @@ namespace TextEditor {
             }
         }
 
-        static void OpenFile(){}
+
+        static void OpenFile(){
+            Console.Clear();
+            Console.WriteLine("Qual o caminho do arquivo?");
+            string FilePath = Console.ReadLine();
+
+            using(var DataFile = new StreamReader(FilePath)){
+                string Text = DataFile.ReadToEnd();
+                Console.WriteLine(Text);
+            }
+
+            Console.WriteLine("");
+            Console.ReadLine();
+            Menu();
+        }
+
 
         static void EditFile(){
             Console.Clear();
@@ -39,9 +55,22 @@ namespace TextEditor {
             }
             while (Console.ReadKey().Key != ConsoleKey.Escape);
 
-            Console.WriteLine(Text);
+            SaveFile(Text);
+        }
 
 
+        static void SaveFile(string text){
+            Console.Clear();
+            Console.WriteLine("Qual caminho para salvar o arquivo?");
+            string PathToSave = Console.ReadLine();
+
+            // Operação dentro de contexto
+            using(var File = new StreamWriter(PathToSave) ){
+                File.Write(text);
+            }
+            Console.WriteLine($"Arquivo {PathToSave} salvo com sucesso!");
+            Console.ReadKey();
+            Menu();
         }
     }
 
