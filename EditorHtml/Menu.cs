@@ -11,36 +11,33 @@ namespace EditorHtml
             // Configuração do console
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Black;
-            DrawScreen();
+            
+            DrawScreen(60, 10);
         }
 
-        static void DrawScreen()
+        public static void DrawScreen(int largura, int altura)
         {
-            Console.Write("+");
-            for (int i = 0; i <= 30; i++)
-            {
-                Console.Write("-");
-            }
-            Console.Write("+");
-            Console.Write("\n");
+            // Cabeçalho
+            DrawLine(largura, "+", "-");
 
-            for(int lines = 0; lines <= 10; lines++)
+            // Corpo
+            for(int lines = 0; lines <= altura; lines++)
             {
-                Console.Write("|");
-                for (int i = 0; i <= 30; i++)
-                {
-                    Console.Write(" ");
-                }
-                Console.Write("|");
-                Console.Write("\n");    
+                DrawLine(largura, "|", " ");
             }
-            
-            Console.Write("+");
-            for (int i = 0; i <= 30; i++)
+
+            // Roda pé
+            DrawLine(largura, "+", "-");
+        }
+
+        public static void DrawLine(int largura, string StartChar, string BodyChar)
+        {
+            Console.Write(StartChar);
+            for (int i = 0; i <= largura; i++)
             {
-                Console.Write("-");
+                Console.Write(BodyChar);
             }
-            Console.Write("+");
+            Console.Write(StartChar);
             Console.Write("\n");
         }
     }
