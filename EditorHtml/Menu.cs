@@ -15,7 +15,7 @@ namespace EditorHtml
             DrawScreen(30, 10);
             WriteOptions();
 
-            var Option = short.Parse(Console.ReadLine());
+            var Option = short.Parse(Console.ReadLine() ?? "-1");
             HandleMenuOption(Option);
         }
 
