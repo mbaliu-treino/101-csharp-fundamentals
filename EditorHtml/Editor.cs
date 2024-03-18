@@ -5,7 +5,7 @@ namespace EditorHtml{
     public static class Editor{
         public static void Show(){
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Write;
+            Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine("MODO EDITOR");
@@ -22,8 +22,8 @@ namespace EditorHtml{
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
 
             Console.WriteLine("-------------");
-            Console.WriteLine("Deseja salvar o arquivo?");
-
+            Console.WriteLine(" Deseja salvar este arquivo?");
+            Console.ReadKey();
             Viewer.Show(file.ToString());
 
         }

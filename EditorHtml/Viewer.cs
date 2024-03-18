@@ -5,7 +5,7 @@ namespace EditorHtml{
     public class Viewer{
         public static void Show(string text){
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Write;
+            Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine("MODO DE VISUALIZAÇÃO");
@@ -40,6 +40,7 @@ namespace EditorHtml{
                     Console.Write(" ");
                 }
             }
+            Console.Write("\n");
         }
     }
 }
