@@ -18,10 +18,12 @@ namespace EditorHtml{
             do {
                 file.Append(Console.ReadLine());
                 file.Append(Environment.NewLine);
-            } while (Console.ReadKey().Key() != ConsoleKey.Escape);
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
 
             Console.WriteLine("-------------");
             Console.WriteLine("Deseja salvar o arquivo?");
+
+            Viewer.Show(file.ToString());
 
         }
     }
